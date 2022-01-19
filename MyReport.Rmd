@@ -1,0 +1,29 @@
+---
+title: "Report for {`r data_individual[1]` `r data_individual[2]`}" #this will print the title with each individual's name
+# author: "Nova SBE"
+date: "`r Sys.Date()`" #this code gets the system date
+output: pdf_document #set output to pdf file
+fontsize: 10pt #set the font size
+classoption: a4paper #set paper tipe
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## This is an Example of a dinamic report
+
+The first name is:    `r data_individual[1]`
+The last name is:     `r data_individual[2]`
+
+This let you print *`r data_individual[3]`*
+
+The square root of `r data_individual[4]`is `r format(data_individual[5], ,digits = 5, nsmall = 5)`.
+
+You can also pass on pre-formatted rmarkdown text link we are doing here with this bullet point:
+
+```{r, echo=FALSE, results='asis'} 
+        cat(as.character(data_individual[6]))
+```
+<!-- the asis will output the text excaly as it is, so that you get the formating, it doesn't work with latex code --> 
+
